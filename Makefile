@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+         #
+#    By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/07 23:05:50 by akisuzuk          #+#    #+#              #
-#    Updated: 2023/04/01 13:26:49 by akisuzuk         ###   ########.fr        #
+#    Created: 2023/07/16 01:15:07 by akisuzuk          #+#    #+#              #
+#    Updated: 2023/07/16 01:15:15 by akisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
