@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 10:54:46 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/07/30 20:11:49 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/07/31 00:34:04 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 // ※シグナルの種類。。。SIGINT, SIGQUIT, SIGKILL, SIGSEGV, SIGTERM, SIGSTOP, SIGCONT, SIGTSTP, SIGUSR1, SIGUSR2, SIGCHLD, SIGWINCH, SIGINFO, SIGPIPE, SIGALRM, SIGFPE, SIGILL, SIGABRT, SIGBUS, SIGTRAP, SIGSYS, SIGURG, SIGXCPU, SIGXFSZ, SIGVTALRM, SIGPROF, SIGIO, SIGPWR, SIGSTKFLT, SIGEMT, SIGINFO, SIGLOST, SIGPOLL, SIGPWR, SIGRTMIN, SIGRTMAX
 // ※シグナルハンドラとしたい関数。。。void型の引数を一つ取り、void型の戻り値を返す関数
 // 例えば、signal(SIGINT, sigint_handler)とすると、SIGINTというシグナルが送られた時に、sigint_handlerという関数が実行される
+// ★SIGUSER1とは、ユーザーが定義したシグナルのことで、内容は自由に決められる
 
 // 一方でsigactionは構造体を使用する
 // とりあえず①sigactionの構造体を宣言　struct sigaction sa;
@@ -40,12 +41,20 @@
 // client.cは、kill関数を使ってサーバーに文字を送る
 // これ、ターミナルを2つ開いて、それぞれでserver.cとclient.cを起動することで実現できるってこと？
 
+// 20230730
+// ポイントは、sigactionで組むことだけではなく、シグナルを2種類しか使えないということ
+// なので、char型の情報を送るには、8bitの情報を1bitずつ送る必要がある
+// これが、シリアル通信的な通信ということらしい
+// コード上は、client.cがkill関数を使って文字を1bitずつ2種類のシグナルを使って送る
 
+// 「割り込み」
+// Xxx
 
+// とりあえず「本当はむずかしいminitalk」のコードを追っかけてプログラムの流れを確認（sigaction使ってるp17あたり）
 
 #include "ft_minitalk.h"
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
     (void)ac;
     kill((pid_t)atoi(av[1]), SIGSEGV);
