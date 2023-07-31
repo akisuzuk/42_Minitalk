@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 10:54:46 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/07/31 00:34:04 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/08/01 00:14:10 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,17 @@
 
 #include "ft_minitalk.h"
 
+void send_str()
+{
+
+}
+
 int	main(int argc, char **argv)
 {
-    (void)ac;
-    kill((pid_t)atoi(av[1]), SIGSEGV);
-    return 0;
+    int pid;
+
+    if (argc != 3)
+        return (1);
+    pid = ft_atoi(argv[1]);
+    send_str(pid, argv[2]);
 }
