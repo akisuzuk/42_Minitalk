@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 10:56:58 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/07/16 11:13:10 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/08/02 00:00:35 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <limits.h>
 # include <stdbool.h>
 # include <stdarg.h>
+# include <fcntl.h>
 
 //typedef struct s_flag
 //{
