@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 10:56:58 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/08/02 00:00:35 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/11/12 20:40:02 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,15 @@
 # include <unistd.h>
 # include <string.h>
 # include <math.h>
-# include <climits>
+//# include <climits> // ubuntuではいけたけどmacだと弾かれるな
 # include <limits.h>
 # include <stdbool.h>
 # include <stdarg.h>
 # include <fcntl.h>
+# include <signal.h>
+
+int		ft_atoi(const char *str);
+void	*ft_memset(void *b, int c, size_t len);
 
 //typedef struct s_flag
 //{

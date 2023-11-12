@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 17:15:47 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/08/11 20:14:11 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/11/12 19:46:04 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,23 @@ void	*ft_memset(void *b, int c, size_t len)
 	return (b);
 }
 
-int	main(void)
-{
-	char	str1[256];
-	int		n;
-	char	*result;
-
-	str1[0] = 'a';
-	str1[1] = 'b';
-	str1[2] = 'c';
-	str1[3] = 'd';
-	str1[4] = 'e';
-	str1[5] = '\0';
-
-	printf("str1=%s\n", str1);
-//	printf("%s\n", str2);
-	result = ft_memset(str1, 1, 2);
-	printf("str1=%s\n", result);
-	printf("------------\n");
-	return (0);
-}
+//int	main(void)
+//{
+//	char	str1[256];
+//	int		n;
+//	char	*result;
+//
+//	str1[0] = 'a';
+//	str1[1] = 'b';
+//	str1[2] = 'c';
+//	str1[3] = 'd';
+//	str1[4] = 'e';
+//	str1[5] = '\0';
+//
+//	printf("str1=%s\n", str1);
+////	printf("%s\n", str2);
+//	result = ft_memset(str1, 1, 2);
+//	printf("str1=%s\n", result);
+//	printf("------------\n");
+//	return (0);
+//}

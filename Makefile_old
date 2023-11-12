@@ -1,0 +1,79 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/07/16 01:15:07 by akisuzuk          #+#    #+#              #
+#    Updated: 2023/11/12 21:00:39 by akisuzuk         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+CC     := cc
+CFLAGS := -Wall -Wextra -Werror
+
+# 実行ファイル名(いままでのa.out)
+PROGRAM = ft_minitalk
+
+# 生成したい静的ライブラリ名
+NAME = hoge.a
+
+# ワイルドカードで一気に書きたいのに2通りの書き方どっちもうまくいかん
+#SRCDIR  = ./srcs
+#SRCS     = $(wildcard $(SRCDIR)/*.c)
+
+#SRCs = ./srcs/*.c
+
+SRCS = 	ft_server.c \
+		ft_client.c \
+		ft_memset.c \
+		ft_atoi.c
+
+OBJS    = $(SRCS:.c=.o)
+
+# 今回は静的ライブラリとかないので直接実行
+$(PROGRAM): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(PROGRAM)
+
+# 更新されてないファイルの毎回コンパイルされるのを防ぐように、個別の.cについて記載(面倒だけどな...)
+# [復習]　$< は依存ファイル(↓コロンの後に続くファイル名)の先頭のファイル名
+ft_server.o: ft_server.c
+	$(CC) $(CFLAGS) -c $<
+
+ft_client.o: ft_client.c
+	$(CC) $(CFLAGS) -c $<
+
+ft_memset.o: ft_memset.c
+	$(CC) $(CFLAGS) -c $<
+
+ft_atoi.o: ft_atoi.c
+	$(CC) $(CFLAGS) -c $<
+
+# サフィックスルール
+.c.o:
+	$(CC) $(CFLAGS) -c $<
+#	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
+# ライブラリ生成
+#$(NAME): $(OBJS)
+#		ar rcs $(NAME) $(OBJS)
+
+# 実行ファイル生成
+all: $(PROGRAM)
+
+clean:
+		rm -f $(OBJS)
+
+fclean: clean
+		rm -f $(PROGRAM)
+
+re: fclean all
+
+bonus:	all
+
+.PHONY: all clean fclean re
+
+
+
+
