@@ -6,7 +6,7 @@
 #    By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 21:02:43 by akisuzuk          #+#    #+#              #
-#    Updated: 2023/11/18 12:33:16 by akisuzuk         ###   ########.fr        #
+#    Updated: 2023/11/18 18:17:01 by akisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,20 +35,18 @@ all : $(NAME)
 $(NAME) : $(C_NAME) $(S_NAME)
 
 $(C_NAME): $(C_OBJ) $(LIB)
-#	$(CC) $(CFLAGS) $(C_OBJ) -o $(C_NAME) $(LIB)
-	$(CC) $(C_OBJ) -o $(C_NAME) $(LIB)
+	$(CC) $(CFLAGS) $(C_OBJ) -o $(C_NAME) $(LIB)
 
 $(S_NAME): $(S_OBJ) $(LIB)
-#	$(CC) $(CFLAGS) $(S_OBJ) -o $(S_NAME) $(LIB)
-	$(CC) $(S_OBJ) -o $(S_NAME) $(LIB)
+	$(CC) $(CFLAGS) $(S_OBJ) -o $(S_NAME) $(LIB)
 
-$(LIB):
-	$(MAKE) -C ./libft
+#これいらんかも。minitalk.aとかいう意味不明なファイルができる
+#$(LIB):
+#	$(MAKE) -C ./libft
 
 
 .c.o :
-#	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(HEAD)
-	$(CC) -c $< -o $(<:.c=.o) $(HEAD)
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(HEAD)
 
 clean :
 	$(RM) $(C_OBJ) $(S_OBJ)
