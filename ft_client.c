@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 10:54:46 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/11/18 19:13:21 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/11/18 22:26:22 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,20 @@
 void	send_char(const pid_t pid, char c)
 {
 	int	digit;
+	int	killnum;
 
 	digit = 7;
 	while (digit >= 0)
 	{
 		if (c & (1 << digit))
-			kill(pid, SIGUSR1);
+			killnum = kill(pid, SIGUSR1);
 		else
-			kill(pid, SIGUSR2);
+			killnum = kill(pid, SIGUSR2);
+		if (killnum == -1)
+		{
+			write(1, "Error : Failed to send signal\n", 30);
+			return (1);
+		}
 		digit--;
 		usleep(100);
 	}
@@ -42,7 +48,11 @@ int	main(int argc, char **argv)
 	int	pid;
 
 	if (argc != 3)
-		return (1);
+	{
+		write(1, "Error : Please enter a single string\n", 37);
+		exit (1);
+	}
 	pid = ft_atoi(argv[1]);
 	send_str(pid, argv[2]);
+	return (0);
 }

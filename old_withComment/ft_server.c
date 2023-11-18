@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 10:54:50 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/11/18 21:08:05 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/11/18 22:30:21 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ void	signal_handler(int signum, siginfo_t *info, void *context)
 	(void) info;
 	(void) context;
 	// ビットシフト演算子を使って、送信元が送ってきた文字を一つずつ取得する
+	// ⭐️今更ながらこれ、g_charはビットずらしてってその時々の下8桁だけあればいいから、
+	// 次の文字を変換するときも初期化とかはいらないのね、
+	// 格桁は使い捨てってことか
 	g_char = g_char << 1;
 	// 送信元のプロセスIDの最下位ビットが1なら、g_charの最下位ビットを1にする
 	if (signum == SIGUSR1)
