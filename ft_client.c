@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 10:54:46 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/11/18 22:26:22 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:06:53 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	send_char(const pid_t pid, char c)
 		if (killnum == -1)
 		{
 			write(1, "Error : Failed to send signal\n", 30);
-			return (1);
+			exit (1);
 		}
 		digit--;
 		usleep(100);
