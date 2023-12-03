@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akisuzuk <XXX>                             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 17:15:47 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/03/10 20:20:38 by akisuzuk         ###   ########.fr       */
+/*   Created: 2023/01/15 12:25:57 by akisuzuk          #+#    #+#             */
+/*   Updated: 2023/03/10 20:21:45 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+size_t	ft_strlen(const char *s)
 {
-	unsigned char	*ret;
+	size_t	i;
 
-	ret = (unsigned char *)b;
-	while (len--)
-		*ret++ = (unsigned char)c;
-	return (b);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 
 //int	main(void)
 //{
-//	char	str1[256];
-//	int		n;
-//	char	*result;
+//	int	len;
 //
-//	str1[0] = 'a';
-//	str1[1] = 'b';
-//	str1[2] = 'c';
-//	str1[3] = 'd';
-//	str1[4] = 'e';
-//	str1[5] = '\0';
-//
-//	printf("str1=%s\n", str1);
-////	printf("%s\n", str2);
-//	result = ft_memset(str1, 1, 2);
-//	printf("str1=%s\n", result);
-//	printf("------------\n");
+//	len = ft_strlen("ab--cdef-gttt");
+//	printf("len=%d", len);
 //	return (0);
 //}

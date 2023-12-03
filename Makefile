@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 21:02:43 by akisuzuk          #+#    #+#              #
-#    Updated: 2023/11/18 18:17:01 by akisuzuk         ###   ########.fr        #
+#    Updated: 2023/12/03 15:52:41 by akisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,10 @@ all : $(NAME)
 #	$(CC) $(CFLAGS) $(S_OBJ) $(LIB) -o $(S_NAME)
 # 下記のように修正
 
+#libftはそのまま全部のファイルぶっ込んで個別にmakeするようにすると、関数のアプデした時に楽
+$(LIB):
+	$(MAKE) -C ./libft
+
 $(NAME) : $(C_NAME) $(S_NAME)
 
 $(C_NAME): $(C_OBJ) $(LIB)
@@ -39,11 +43,6 @@ $(C_NAME): $(C_OBJ) $(LIB)
 
 $(S_NAME): $(S_OBJ) $(LIB)
 	$(CC) $(CFLAGS) $(S_OBJ) -o $(S_NAME) $(LIB)
-
-#これいらんかも。minitalk.aとかいう意味不明なファイルができる
-#$(LIB):
-#	$(MAKE) -C ./libft
-
 
 .c.o :
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(HEAD)

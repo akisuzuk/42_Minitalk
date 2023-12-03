@@ -1,44 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akisuzuk <XXX>                             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 17:15:47 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/03/10 20:20:38 by akisuzuk         ###   ########.fr       */
+/*   Created: 2023/02/04 16:38:00 by akisuzuk          #+#    #+#             */
+/*   Updated: 2023/03/10 20:18:57 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned char	*ret;
+	void	*p;
 
-	ret = (unsigned char *)b;
-	while (len--)
-		*ret++ = (unsigned char)c;
-	return (b);
+	if (count == 0 || size == 0)
+		return (ft_calloc(1, 1));
+	if (size != 0 && count > SIZE_MAX / size)
+		return (NULL);
+	p = malloc(count * size);
+	if (p == NULL)
+		return (NULL);
+	ft_bzero(p, count * size);
+	return (p);
 }
 
+//
 //int	main(void)
 //{
-//	char	str1[256];
-//	int		n;
-//	char	*result;
+//	char	*ch;
+//	char	*ft_ch;
 //
-//	str1[0] = 'a';
-//	str1[1] = 'b';
-//	str1[2] = 'c';
-//	str1[3] = 'd';
-//	str1[4] = 'e';
-//	str1[5] = '\0';
-//
-//	printf("str1=%s\n", str1);
-////	printf("%s\n", str2);
-//	result = ft_memset(str1, 1, 2);
-//	printf("str1=%s\n", result);
-//	printf("------------\n");
+//	ft_ch = (char *)ft_calloc(SIZE_MAX, 0);
+//	ch = (char *)calloc(1, 100);
+//	free(ft_ch);
+//	free(ch);
 //	return (0);
 //}
+//

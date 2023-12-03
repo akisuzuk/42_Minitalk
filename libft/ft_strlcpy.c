@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akisuzuk <XXX>                             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 17:15:47 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/03/10 20:20:38 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:21:41 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned char	*ret;
+	size_t	len;
 
-	ret = (unsigned char *)b;
-	while (len--)
-		*ret++ = (unsigned char)c;
-	return (b);
+	len = 1;
+	while (len < dstsize && *src)
+	{
+		*dst++ = *src++;
+		len++;
+	}
+	if (dstsize)
+		*dst = '\0';
+	while (*src++)
+		len++;
+	return (len - 1);
 }
 
+//
 //int	main(void)
 //{
-//	char	str1[256];
-//	int		n;
-//	char	*result;
+//	char			str1[6];
+//	char			str2[4];
+//	int				n;
+//	unsigned int	ret;
 //
 //	str1[0] = 'a';
 //	str1[1] = 'b';
@@ -34,11 +43,19 @@ void	*ft_memset(void *b, int c, size_t len)
 //	str1[3] = 'd';
 //	str1[4] = 'e';
 //	str1[5] = '\0';
-//
-//	printf("str1=%s\n", str1);
-////	printf("%s\n", str2);
-//	result = ft_memset(str1, 1, 2);
-//	printf("str1=%s\n", result);
-//	printf("------------\n");
+//	str2[0] = 'F';
+//	str2[1] = 'G';
+//	str2[2] = 'H';
+//	str2[3] = '\0';
+//	n = 2;
+//	printf("%s\n", str1);
+//	printf("%s\n", str2);
+//	ret = ft_strlcpy(str1, str2, -1);
+//	//ret = strlcpy(str1, str2, -1);
+//	printf("---PROCESSED---\n");
+//	printf("%s\n", str1);
+//	printf("%s\n", str2);
+//	printf("%d\n", ret);
 //	return (0);
 //}
+//
