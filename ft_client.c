@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_client.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 10:54:46 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/12/03 16:12:29 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/12/04 01:04:02 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	send_char(const pid_t pid, char c)
 			exit (1);
 		}
 		digit--;
-		usleep(100);
+		usleep(1000);
 	}
 }
 
@@ -53,6 +53,16 @@ int	main(int argc, char **argv)
 		exit (1);
 	}
 	pid = ft_atoi(argv[1]);
+	if (pid == 0)
+	{
+		write(1, "Error : PID is 0 or not digit\n", 30);
+		exit (1);
+	}
+	if (pid < 0)
+	{
+		write(1, "Error : PID is Negative or exceeds the INT_MAX\n", 47);
+		exit (1);
+	}
 	send_str(pid, argv[2]);
 	return (0);
 }

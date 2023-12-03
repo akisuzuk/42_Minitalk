@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 10:56:58 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/11/18 19:27:56 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/12/04 00:26:31 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@
 int		ft_atoi(const char *str);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_putnbr_fd(int n, int fd);
+int		ft_isdigit(int c);
 
 #endif

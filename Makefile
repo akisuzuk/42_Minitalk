@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+         #
+#    By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 21:02:43 by akisuzuk          #+#    #+#              #
-#    Updated: 2023/12/03 15:52:41 by akisuzuk         ###   ########.fr        #
+#    Updated: 2023/12/04 00:25:17 by akisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIB = ./libft/libft.a
 C_OBJ = $(C_SRC:.c=.o)
 S_OBJ = $(S_SRC:.c=.o)
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 HEAD = -I ./includes
 RM = rm -f
