@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 21:02:43 by akisuzuk          #+#    #+#              #
-#    Updated: 2023/12/04 00:25:17 by akisuzuk         ###   ########.fr        #
+#    Updated: 2023/12/17 11:35:04 by akisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ C_NAME = client
 S_NAME = server
 C_SRC = ft_client.c
 S_SRC = ft_server.c
+LIB_DIR = ./libft
 LIB = ./libft/libft.a
 C_OBJ = $(C_SRC:.c=.o)
 S_OBJ = $(S_SRC:.c=.o)
@@ -48,10 +49,10 @@ $(S_NAME): $(S_OBJ) $(LIB)
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(HEAD)
 
 clean :
-	$(RM) $(C_OBJ) $(S_OBJ)
+	$(RM) $(C_OBJ) $(S_OBJ) $(LIB_DIR)/*.o
 
 fclean : clean
-	$(RM) $(C_NAME) $(S_NAME)
+	$(RM) $(C_NAME) $(S_NAME) $(LIB_DIR)/*.a
 
 re : fclean all
 
