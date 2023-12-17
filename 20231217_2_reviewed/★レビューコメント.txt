@@ -1,0 +1,9 @@
+EVALUATED BY PHILANTHROPIST SHMORISH AN HOUR AGO 0%
+・プロセスIDを示す型はINTではなくPID_T型となっているのでそちらを使う方がベターだと思います。
+・エラー文は標準エラー出力に出力した方がいいです。
+・Makefileでclean fcleanでwildcardが使用されていました。make -C <dir名> <実行コマンド>で解決できます。
+・日本語コメントはnorminette違反です。
+・実はprocessIDは環境依存でMac環境だと100000は絶対にいきません。
+・./client 94693aaa aaaなどでmessageを送信できました。。。is_digitとかを噛ませると大丈夫だと思います。
+・そのほかの挙動は大丈夫だと思います！
+・100文字も１秒以内に送信できていました！

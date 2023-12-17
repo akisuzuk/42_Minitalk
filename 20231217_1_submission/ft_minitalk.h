@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minitalk.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 10:56:58 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/12/17 13:58:37 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/12/04 00:26:31 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <math.h>
-//# include <climits> // not for C but CPP
+//# include <climits> // ubuntuではいけたけどmacだと弾かれるな
 # include <limits.h>
 # include <stdbool.h>
 # include <stdarg.h>
